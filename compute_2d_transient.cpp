@@ -7,6 +7,30 @@
 #include <filesystem>
 #include <string>
 
+/* List of Helper Functions
+   
+1. print_matrix: Function takes in a 2D vector and prints the elements in a matrix format. If matrix size exceeds 10X10, it 
+    prints a message and does not print the matrix to avoid cluttering the console.
+
+2. apply_bc: Function takes in a 2D vector and the boundary condition values for left, right, top and bottom walls. 
+    It applies the boundary conditions to the input 2D vector by modifying the values at the corresponding indices.
+
+3. compute_2d: Function takes in the current solution matrix, a new solution matrix and the beta multiplier. 
+    It performs the numerical computation for the 2D transient heat conduction problem using the 
+    finite difference method and updates the new solution matrix with the computed values.
+
+4. error_calc_2d: Function takes in the current solution matrix and the new solution matrix. 
+    It calculates the error between the two matrices by taking the absolute difference of corresponding elements, 
+    summing them up and returning the total error.
+
+5. write_sol_csv: Function takes in a 2D vector and a filename as input. 
+    It writes the elements of the 2D vector into a csv file with the given filename.
+
+6. save_meta_data: Function takes in a filename and the simulation parameters as input. 
+    It writes the simulation parameters into a text file with the given filename for record-keeping and reproducibility purposes.
+*/
+
+
 int print_matrix(std::vector<std::vector<double>>& arr_2d){
     size_t sz = arr_2d.size(); 
     if (sz>10){
