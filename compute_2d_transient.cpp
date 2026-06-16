@@ -115,6 +115,21 @@ void write_sol_csv(const std::vector<std::vector<double>> &arr_2d,const std::str
 file.close();
 }
 
+void save_meta_data(const std::string &filename, double alpha, double dt, double h, double beta, double err_tol, int max_iter, double top_wall_val, double bottom_wall_val, double left_wall_val, double right_wall_val){
+    std::ofstream file(filename);
+    file << "Thermal diffusivity (alpha): " << alpha << "\n";
+    file << "Time step (dt): " << dt << "\n";
+    file << "Grid spacing (h): " << h << "\n";
+    file << "Beta multiplier: " << beta << "\n";
+    file << "Error tolerance: " << err_tol << "\n";
+    file << "Maximum iterations: " << max_iter << "\n";
+    file<<top_wall_val<<" "<<bottom_wall_val<<" "<<left_wall_val<<" "<<right_wall_val<<"\n";
+    file.close();
+}
+
+
+
+
 // Start of main function 
 int main(int argc, char* argv[]){
 
@@ -236,6 +251,11 @@ std::cout<<"Residual error is "<<err_temp<<std::endl;
 // Write the results to a csv file 
 std::string filename_final_sol = study_name + "/final_solution.csv";
 write_sol_csv(T_sol_new, filename_final_sol);
+
+// Save meta data
+std::string filename_meta = study_name + "/meta_data.txt";
+save_meta_data(filename_meta, alpha, dt, h, beta, err_tol, max_iter, top_wall_val, bottom_wall_val, left_wall_val, right_wall_val);
+
 std::cout<<"The total time it took for the problem to reach steady-state is "<<iter_count*dt<<" seconds"<<std::endl;
 return 0;
 }
