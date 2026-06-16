@@ -1,0 +1,9 @@
+
+# Conda environments/settings
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+*.xlsx
