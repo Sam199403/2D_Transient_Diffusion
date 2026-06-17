@@ -1,5 +1,11 @@
 # Transient heat diffusion solver 
-This tool numerically solves the transient 2D heat diffusion equation and visualizes the evolving temperature field with time. 
+This tool numerically solves the transient 2D heat diffusion equation and visualizes the evolving temperature field with time. The following animation shows a sample study demonstrating diffusion of heat from the domain boundaries to the domain interior areas. 
+
+<div align="center">
+  <img src="animation.gif" width="480">
+</div>
+
+
 ## Governing equation and discretization
 The 2D transient heat diffusiuon equation is given by
 ```math
