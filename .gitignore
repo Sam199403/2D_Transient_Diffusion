@@ -7,3 +7,6 @@
 *.ipynb
 
 *.xlsx
+
+.vscode/
+*.json

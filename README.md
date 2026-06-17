@@ -36,7 +36,9 @@ The solution is stable for $\Delta t \leq \frac{h^2}{4 \alpha}$
 * Gives user option to input time step. Checks the user-specified time step against the explicit scheme stability criterion and adjusts it if necessary.
 * The interior domain is initialized to zero temperature; boundary values are prescribed by the user.
 * Visualize the evolving temperature distribution with time
-* Numerical computations are performed in C++, while post-processing and visualization are performed in Python.
+* Save animation as video file and individual heat-maps as images
+* Saves metadata for the study as a text-file within the study folder 
+* Numerical computations are performed in C++, while post-processing and visualization are performed in Python. Video generation is performed by GNUPlot
 * A batch file automates the process 
 * User-defined study names create dedicated output folders. Temperature fields are saved as CSV snapshots every 100 iterations.
 
@@ -48,4 +50,13 @@ The solution is stable for $\Delta t \leq \frac{h^2}{4 \alpha}$
 5. Enter the desired time-step. The program checks it against the stability criteria and modifies accordingly
 6. Computations are performed and the data for every 100 iterations are stored in csv files within a folder named after the study name 
 7. After calculations, enter the desired time duration for the animation. If the annimation takes longer than the desired duration, the animation exits. You will be prompted whether you wish to re-run the animation again with a different desired time duration. 
-8. Folders and files will be overwritten if the same study-name is re-used. 
+8. To save video, run the following line in terminal after which, you will be prompted to enter the folder name containing the data files: 
+```bash
+gnuplot vid_maker.gp
+```
+9. Folders and files will be overwritten if the same study-name is re-used. 
+
+## Dependencies 
+1. Python libraries: Matplotlib and numpy 
+2. GNUPlot 
+3. ffmpeg 
